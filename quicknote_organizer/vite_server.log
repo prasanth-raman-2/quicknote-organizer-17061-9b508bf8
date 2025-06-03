@@ -2,3 +2,9 @@
 > vite@0.0.0 dev
 > vite dev --host 0.0.0.0 --port 3000
 
+error when starting dev server:
+Error: Port 3000 is already in use
+    at Server.onError (file:///home/kavia/workspace/code-generation/quicknote-organizer-17061-9b508bf8/quicknote_organizer/node_modules/vite/dist/node/chunks/dep-Pj_jxEzN.js:30665:18)
+    at Server.emit (node:events:517:28)
+    at emitErrorNT (node:net:1838:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
