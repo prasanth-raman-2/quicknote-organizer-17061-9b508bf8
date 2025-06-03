@@ -214,7 +214,7 @@ export function renderQuickNoteMain(el) {
 
     // Category filter buttons
     $$('.qno-cat-btn', el).forEach(btn => {
-      btn.onclick = (e) => {
+      btn.onclick = () => {
         state.selectedCategory = btn.getAttribute('data-cat');
         render();
       };
@@ -224,13 +224,13 @@ export function renderQuickNoteMain(el) {
     $$('.qno-card', el).forEach(card => {
       const noteId = Number(card.getAttribute('data-id'));
       // Edit button
-      $('.qno-edit-btn', card).onclick = (e) => {
+      $('.qno-edit-btn', card).onclick = () => {
         const note = state.notes.find(n => n.id === noteId);
         if (note) showModal(note);
       };
 
       // Delete button
-      $('.qno-del-btn', card).onclick = (e) => {
+      $('.qno-del-btn', card).onclick = () => {
         if (confirm('Delete this note?')) {
           state.notes = state.notes.filter(n => n.id !== noteId);
           saveNotes();
