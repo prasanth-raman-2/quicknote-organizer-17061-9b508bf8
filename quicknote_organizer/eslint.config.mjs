@@ -5,6 +5,12 @@ import tsParser from "@typescript-eslint/parser";
 export default [
   js.configs.recommended,
   {
+    // Enable browser global variables (window, localStorage, alert, etc.)
+    languageOptions: {
+      env: {
+        browser: true,
+      },
+    },
     ignores: [
       "node_modules/**",
       "build/",
