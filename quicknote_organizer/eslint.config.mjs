@@ -5,9 +5,24 @@ import tsParser from "@typescript-eslint/parser";
 export default [
   js.configs.recommended,
   {
-    // Enable browser global variables (window, localStorage, alert, etc.)
-    env: { browser: true },
-    languageOptions: {},
+    // Enable browser global variables (window, localStorage, alert, etc.) for Flat config.
+    languageOptions: {
+      globals: {
+        window: "writable",
+        document: "readonly",
+        localStorage: "readonly",
+        alert: "readonly",
+        confirm: "readonly",
+        FormData: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        // Other common browser globals if needed
+        navigator: "readonly",
+        location: "readonly",
+        requestAnimationFrame: "readonly",
+        cancelAnimationFrame: "readonly"
+      }
+    },
     ignores: [
       "node_modules/**",
       "build/",
