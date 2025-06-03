@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 //
 // PUBLIC_INTERFACE
 // Main container for QuickNote Organizer: Vanilla JS, Vite style, ES6+, self-contained, light-theme, card-based UI.
@@ -38,7 +40,7 @@ export function renderQuickNoteMain(el) {
     try {
       localStorage.setItem('quicknote_notes', JSON.stringify(state.notes));
       localStorage.setItem('quicknote_nextid', state.nextId);
-    } catch(_) { /* Fallback: ignore quota exceeded */ }
+    } catch { /* Fallback: ignore quota exceeded */ }
   }
   function loadNotes() {
     const notesRaw = localStorage.getItem('quicknote_notes');
@@ -238,7 +240,7 @@ export function renderQuickNoteMain(el) {
 
       // Long-press/touch (opens edit modal, simulates mobile behavior)
       let lpTimer = null;
-      card.onmousedown = card.ontouchstart = (evt) => {
+      card.onmousedown = card.ontouchstart = () => {
         lpTimer = setTimeout(() => {
           const note = state.notes.find(n => n.id === noteId);
           if (note) showModal(note);
