@@ -6,11 +6,8 @@ export default [
   js.configs.recommended,
   {
     // Enable browser global variables (window, localStorage, alert, etc.)
-    languageOptions: {
-      env: {
-        browser: true,
-      },
-    },
+    env: { browser: true },
+    languageOptions: {},
     ignores: [
       "node_modules/**",
       "build/",
